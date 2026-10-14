@@ -66,6 +66,8 @@ class SiteSettings extends Page implements HasForms
                 TextInput::make('phone_secondary')->label('Secondary phone'),
                 Textarea::make('address')->label('Dhaka office address')->columnSpanFull(),
                 Textarea::make('chattogram_address')->label('Chattogram office address')->columnSpanFull(),
+                TextInput::make('dhaka_map_url')->label('Dhaka office Google Maps link')->url()->rules(['starts_with:https://'])->maxLength(2048)->helperText('Paste the Google Maps share link. Leave blank to search by office address.'),
+                TextInput::make('chattogram_map_url')->label('Chattogram office Google Maps link')->url()->rules(['starts_with:https://'])->maxLength(2048)->helperText('Paste the Google Maps share link. Leave blank to search by office address.'),
                 TextInput::make('mail_host')->label('SMTP host'),
                 TextInput::make('mail_port')->numeric()->label('SMTP port'),
                 TextInput::make('mail_username')->label('SMTP username'),

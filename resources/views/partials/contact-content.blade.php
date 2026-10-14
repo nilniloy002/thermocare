@@ -1,5 +1,10 @@
 @php
-  $details = \App\Models\SiteSetting::whereIn('key', ['address','chattogram_address','contact_email','phone','phone_secondary'])->pluck('value','key');
+  $details = \App\Models\SiteSetting::whereIn('key', ['address','chattogram_address','contact_email','phone','phone_secondary','dhaka_map_url','chattogram_map_url'])->pluck('value','key');
+  $mapUrl = static function ($key, $address) use ($details) {
+    $url = $details->get($key);
+    return is_string($url) && filter_var($url, FILTER_VALIDATE_URL) && str_starts_with($url, 'https://')
+      ? $url : 'https://www.google.com/maps/search/?api=1&query='.urlencode($address);
+  };
 @endphp
 <main class="contact-page">
   <section class="inner-hero contact-hero text-white" style="--hero-img:url('/images/hero-cold-storage.png')">
@@ -8,8 +13,8 @@
   <section class="contact-section"><div class="container-page contact-layout">
     <aside class="contact-info" aria-label="Contact information">
       <p class="contact-eyebrow">GET IN TOUCH</p><h2>Engineering starts<br>with a conversation.</h2><p class="contact-intro">Tell us what you need. Contact our team directly or send an enquiry using the form.</p>
-      <div class="office-card"><i data-lucide="map-pin" aria-hidden="true"></i><div><h3>Dhaka Office</h3><p>{{ $details['address'] }}</p><a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($details['address']) }}" target="_blank" rel="noopener noreferrer">View on map ↗</a></div></div>
-      <div class="office-card"><i data-lucide="map-pin" aria-hidden="true"></i><div><h3>Chattogram Office</h3><p>{{ $details['chattogram_address'] }}</p><a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($details['chattogram_address']) }}" target="_blank" rel="noopener noreferrer">View on map ↗</a></div></div>
+      <div class="office-card"><i data-lucide="map-pin" aria-hidden="true"></i><div><h3>Dhaka Office</h3><p>{{ $details['address'] }}</p><a href="{{ $mapUrl('dhaka_map_url', $details['address']) }}" target="_blank" rel="noopener noreferrer">View on map ↗</a></div></div>
+      <div class="office-card"><i data-lucide="map-pin" aria-hidden="true"></i><div><h3>Chattogram Office</h3><p>{{ $details['chattogram_address'] }}</p><a href="{{ $mapUrl('chattogram_map_url', $details['chattogram_address']) }}" target="_blank" rel="noopener noreferrer">View on map ↗</a></div></div>
       <div class="contact-direct"><div><i data-lucide="mail" aria-hidden="true"></i><div><h3>Email us</h3><a href="mailto:{{ $details['contact_email'] }}">{{ $details['contact_email'] }}</a></div></div><div><i data-lucide="phone" aria-hidden="true"></i><div><h3>Call our team</h3>@foreach ([$details['phone'], $details['phone_secondary']] as $phone)<a href="tel:{{ preg_replace('/[^+0-9]/', '', $phone) }}">{{ $phone }}</a>@endforeach</div></div></div>
     </aside>
     <div class="contact-form-card" id="enquiry-form">
