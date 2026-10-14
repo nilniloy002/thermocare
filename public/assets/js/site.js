@@ -258,7 +258,8 @@ fetch("/site-data")
     if (data.settings?.home_hero_title) { const title = qs(".hero h1"); if (title) title.textContent = data.settings.home_hero_title; }
     if (data.settings?.home_hero_description) { const description = qs(".hero h1 + p"); if (description) description.textContent = data.settings.home_hero_description; }
     const settingAsset = (path) => path?.startsWith("site/") ? `/storage/${path}` : `/${path}`;
-    if (data.settings?.logo_dark) qsa(".brand-logo").forEach((logo) => { if (!logo.closest(".landing-header") || window.scrollY > 24) logo.src = settingAsset(data.settings.logo_dark); });
+    // Header logo sources are rendered from Site Settings by Laravel. The
+    // landing header scroll handler owns the light/dark transition.
     if (data.settings?.favicon) { const favicon = qs('link[rel="icon"]'); if (favicon) favicon.href = settingAsset(data.settings.favicon); }
   })
   .catch(() => {});

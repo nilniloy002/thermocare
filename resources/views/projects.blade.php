@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Projects | Thermo-Care</title><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script><link rel="stylesheet" href="assets/css/site.css"></head><body>  <header class="site-header">
     <div class="container-page flex h-20 items-center justify-between gap-8">
-      <a href="index.html" aria-label="Thermo-Care home"><img src="assets/logo/thermocare-logo-full.png" width="758" height="209" class="brand-logo" alt="Thermo-Care Engineering Limited"></a>
+      <a href="index.html" aria-label="Thermo-Care home"><img src="{{ $brandDarkUrl }}" width="758" height="209" class="brand-logo" alt="Thermo-Care Engineering Limited"></a>
       <nav class="desktop-nav flex items-center gap-7" aria-label="Main navigation">
         <a class="nav-link" href="index.html" aria-current="page">Home</a>
         <a class="nav-link" href="about.html">About Us</a>
@@ -45,7 +45,7 @@
         </div>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="insights.html">Insights</a>
-        <a class="nav-link" href="contact.html">Contact Us</a>
+        <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
       </nav>
       <div class="flex items-center gap-3">
         <button id="menuButton" class="mobile-menu-button focus-ring h-11 w-11 rounded border border-slate-200" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu" class="mx-auto"></i></button>
@@ -55,14 +55,14 @@
 
   <div id="drawerBackdrop" class="drawer-backdrop" data-open="false"></div>
   <aside id="mobileDrawer" class="mobile-drawer" data-open="false" aria-hidden="true" aria-label="Mobile navigation">
-    <div class="flex items-center justify-between border-b p-5"><img src="assets/logo/thermocare-logo-full.png" class="brand-logo" alt="Thermo-Care Engineering Limited"><button id="drawerClose" class="h-11 w-11 rounded border" aria-label="Close menu"><i data-lucide="x" class="mx-auto"></i></button></div>
+    <div class="flex items-center justify-between border-b p-5"><img src="{{ $brandDarkUrl }}" class="brand-logo" alt="Thermo-Care Engineering Limited"><button id="drawerClose" class="h-11 w-11 rounded border" aria-label="Close menu"><i data-lucide="x" class="mx-auto"></i></button></div>
     <div class="space-y-2 p-5">
       <a class="block py-3 font-bold" href="index.html">Home</a><a class="block py-3 font-bold" href="about.html">About Us</a>
       <button data-accordion aria-expanded="false" aria-controls="mServices" class="flex w-full items-center justify-between py-3 font-bold">Services <i data-lucide="chevron-down"></i></button>
       <div id="mServices" hidden class="pl-4 text-slate-600"><a class="block py-2" href="services.html">Refrigeration</a><a class="block py-2" href="services.html">Air Conditioning</a><a class="block py-2" href="services.html">Maintenance</a></div>
       <button data-accordion aria-expanded="false" aria-controls="mProducts" class="flex w-full items-center justify-between py-3 font-bold">Products <i data-lucide="chevron-down"></i></button>
       <div id="mProducts" hidden class="pl-4 text-slate-600"><a class="block py-2" href="compressor.html">Compressors</a><a class="block py-2" href="condenser.html">Condensers</a><a class="block py-2" href="evaporator.html">Evaporators</a><a class="block py-2" href="products.html">Line Components</a></div>
-      <a class="block py-3 font-bold" href="projects.html">Projects</a><a class="block py-3 font-bold" href="insights.html">Insights</a><a class="block py-3 font-bold" href="contact.html">Contact Us</a>
+      <a class="block py-3 font-bold" href="projects.html">Projects</a><a class="block py-3 font-bold" href="insights.html">Insights</a><a class="block py-3 font-bold" href="{{ route('contact') }}">Contact Us</a>
       <a class="btn btn-primary mt-4 w-full" href="contact.html">Request a Quote</a>
     </div>
   </aside>
@@ -71,13 +71,5 @@
     <div class="container-page pt-8"><button id="searchClose" class="float-right h-11 w-11 rounded border" aria-label="Close search"><i data-lucide="x" class="mx-auto"></i></button><label class="mb-3 block font-black" for="siteSearchInput">Search products, brands or services</label><input id="siteSearchInput" class="w-full rounded border border-slate-300 p-4 text-xl" placeholder="Search products, brands or services"><div class="mt-8 grid gap-4 md:grid-cols-3"><a class="card p-5" href="products.html">Compressors and condensers</a><a class="card p-5" href="services.html">Cold storage services</a><a class="card p-5" href="contact.html">Talk to engineering team</a></div></div>
   </div><main><section class="inner-hero py-20 text-white" style="--hero-img:url('../images/hero-cold-storage.png')"><div class="container-page"><nav class="text-sm text-cyan-200">Home / Projects</nav><h1 class="mt-4 text-5xl font-black">Featured Projects</h1><p class="mt-4 max-w-2xl">Archive format for industrial, commercial and marine case studies.</p></div></section><section class="section-pad"><div class="container-page grid gap-6 md:grid-cols-3"><article class="card"><img src="assets/images/hero-cold-storage.png" class="aspect-[4/3] object-cover" alt="Industrial project site"><div class="p-5"><span class="text-sm font-black text-green-700">Industrial</span><h2 class="mt-2 text-xl font-black">Cold Storage Facility</h2><p class="mt-2 text-slate-600">Scope, location and completion year can be added when verified.</p></div></article><article class="card"><img src="assets/images/heat-pump.jpg" class="aspect-[4/3] object-cover" alt="HVAC equipment"><div class="p-5"><span class="text-sm font-black text-green-700">Commercial</span><h2 class="mt-2 text-xl font-black">HVAC Installation</h2><p class="mt-2 text-slate-600">Case-study card with outcome and equipment fields.</p></div></article><article class="card"><img src="assets/images/hero-cold-room-produce.png" class="aspect-[4/3] object-cover" alt="Engineering project"><div class="p-5"><span class="text-sm font-black text-green-700">Maintenance</span><h2 class="mt-2 text-xl font-black">After-Sales Support</h2><p class="mt-2 text-slate-600">Service coverage and support template.</p></div></article></div></section></main>
 
-<footer class="site-footer">
-    <div class="container-page grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
-      <div><img src="assets/logo/thermocare-logo-full.png" class="footer-brand-logo" alt="Thermo-Care Engineering Ltd."><p class="mt-4 text-sm text-slate-300">Industrial HVAC and refrigeration engineering services for dependable operations.</p></div>
-      <div><h3 class="font-black text-white">Services</h3><a class="mt-4 block text-sm" href="services.html">Refrigeration</a><a class="mt-3 block text-sm" href="services.html">Air Conditioning</a><a class="mt-3 block text-sm" href="services.html">Ventilation</a><a class="mt-3 block text-sm" href="services.html">Maintenance</a></div>
-      <div><h3 class="font-black text-white">Products</h3><a class="mt-4 block text-sm" href="compressor.html">Compressors</a><a class="mt-3 block text-sm" href="condenser.html">Condensers</a><a class="mt-3 block text-sm" href="products.html">Spare Parts</a><a class="mt-3 block text-sm" href="sitemap.html">Sitemap</a></div>
-      <div><h3 class="font-black text-white">Contact</h3><p class="mt-4 text-sm">House 2/B, Road 08, Nikunja 02, Dhaka 1229</p><a class="mt-3 block text-sm" href="mailto:info@thermocarebd.com">info@thermocarebd.com</a><a class="mt-3 block text-sm" href="contact.html">Request a Quote</a></div>
-    </div>
-    <div class="border-t border-white/10 py-5"><div class="container-page flex flex-col justify-between gap-3 text-sm text-slate-400 md:flex-row"><span>© 2026 Thermo-Care Engineering Ltd. All rights reserved.</span><span><a href="404.html">Privacy Policy</a> · <a href="404.html">Terms</a> · <a href="sitemap.html">Sitemap</a></span></div></div>
-  </footer>
+@include('partials.footer')
   <script src="assets/js/site.js"></script><script>lucide.createIcons();</script></body></html>

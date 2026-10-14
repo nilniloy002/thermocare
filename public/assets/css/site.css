@@ -606,6 +606,64 @@ html, body { overflow-x: hidden; }
 .filter-chip { border: 1px solid #b9d8ec; color: var(--tc-green); background: #eef8ff; }
 .table-wrap { overflow-x: auto; border: 1px solid var(--tc-line); border-radius: 8px; }
 .site-footer { background: #071c34; color: #dbe7ee; }
+.contact-hero { padding: 48px 0 54px; }
+.contact-hero nav { font-size: 13px; color: #b9e4ed; margin-bottom: 28px; }
+.contact-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .14em; color: #0876a7; margin-bottom: 12px; }
+.contact-hero .contact-eyebrow { color: #91e1e4; }
+.contact-hero h1 { font-size: clamp(34px,4vw,50px); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.contact-hero h1 + p { color: #d4e3ed; max-width: 640px; font-size: 16px; line-height: 1.7; }
+.contact-section { background: #f5f8fb; padding: 64px 0 80px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 64px; align-items: start; }
+.contact-page h2 { font-size: 28px; font-weight: 800; line-height: 1.25; color: #0b233a; }
+.contact-intro { color: #5b6e80; line-height: 1.7; font-size: 15px; margin: 16px 0 28px; max-width: 400px; }
+.office-card { display: flex; align-items: flex-start; gap: 16px; padding: 21px; background: #fff; border: 1px solid #e0e8ef; border-radius: 12px; margin-top: 14px; }
+.office-card > svg, .contact-direct svg { width: 20px; height: 20px; flex-shrink: 0; color: #0876a7; margin-top: 2px; }
+.contact-info h3 { font-size: 15px; font-weight: 750; margin-bottom: 7px; }
+.office-card p { font-size: 14px; color: #5b6e80; line-height: 1.7; }
+.office-card a { display: inline-block; font-size: 12px; font-weight: 700; color: #0876a7; margin-top: 12px; }
+.contact-direct { display: grid; gap: 22px; margin-top: 28px; padding: 0 4px; }
+.contact-direct > div { display: flex; gap: 16px; }
+.contact-direct a { display: block; font-size: 14px; color: #436079; line-height: 1.8; overflow-wrap: anywhere; }
+.contact-form-card { background: #fff; border: 1px solid #dfe7ef; padding: 34px; border-radius: 16px; box-shadow: 0 12px 40px rgba(10,35,58,.05); }
+.contact-form-heading > p:last-child { font-size: 14px; color: #647487; line-height: 1.7; margin: 12px 0 26px; }
+.contact-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.contact-full { grid-column: 1 / -1; }
+.contact-field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: #17324a; }
+.contact-field label span { color: #0876a7; }
+.contact-field input, .contact-field select, .contact-field textarea { width: 100%; border: 1px solid #cdd9e3; background: #fff; border-radius: 7px; padding: 12px 14px; font-size: 14px; color: #17324a; min-height: 48px; }
+.contact-field textarea { resize: vertical; min-height: 136px; }
+.contact-field input::placeholder, .contact-field textarea::placeholder { color: #7c8997; }
+.contact-field :is(input,select,textarea):focus { outline: 3px solid #d9edf7; border-color: #0876a7; }
+.contact-field [aria-invalid="true"] { border-color: #b42318; }
+.field-error { font-size: 12px; color: #b42318; margin-top: 6px; }
+.contact-privacy { display: flex; gap: 9px; font-size: 12px; color: #647487; line-height: 1.6; margin: 22px 0; }
+.contact-privacy svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+.contact-privacy a { color: #0876a7; text-decoration: underline; }
+.contact-submit { width: 100%; display: flex; justify-content: center; gap: 12px; min-height: 50px; }
+.contact-submit svg { width: 18px; height: 18px; }
+.contact-submit:disabled { opacity: .65; cursor: wait; }
+.contact-notice { padding: 16px; border-radius: 8px; margin-bottom: 22px; font-size: 14px; }
+.contact-success { background: #ecfdf3; color: #166534; border: 1px solid #bbf7d0; }
+.contact-error { background: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+@media(max-width: 900px) { .contact-layout { gap: 32px; grid-template-columns: 1fr; } .contact-section { padding: 36px 0 48px; } }
+@media(max-width: 520px) { .contact-form-card { padding: 22px; } .contact-fields { grid-template-columns: 1fr; } .contact-hero { padding: 32px 0; } }
+.footer-refined .footer-main { display: grid; grid-template-columns: 1.1fr .75fr 1fr 1.3fr; gap: 48px; padding-top: 48px; padding-bottom: 36px; border-top: 1px solid rgba(255,255,255,.12); }
+.footer-refined .footer-brand-logo { width: 260px; height: auto; max-width: 100%; padding: 0; display: block; }
+.footer-refined .footer-intro p { max-width: 270px; margin-top: 22px; }
+.footer-refined p, .footer-refined .footer-main a:not(.footer-intro a) { font-size: 14px; line-height: 1.7; color: #b9cbd8; }
+.footer-refined h3 { font-size: 16px; margin-bottom: 18px; }
+.footer-refined .footer-main a { margin-top: 9px; }
+.footer-refined .footer-offices h4 { font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 5px; }
+.footer-refined .footer-offices > div + div { margin-top: 20px; }
+.footer-refined .footer-offices p { margin: 0; }
+.footer-refined a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.footer-contact-bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; }
+.footer-contact-bar span { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #91aabb; margin-bottom: 7px; }
+.footer-phones { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.footer-contact-bar .footer-contact-link { display: flex; gap: 16px; align-items: center; font-weight: 700; }
+.footer-contact-bar .footer-contact-link span { margin: 0; font-size: 22px; color: inherit; }
+@media (max-width: 1023px) { .footer-refined .footer-main { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; } }
+@media (max-width: 639px) { .footer-refined .footer-main { gap: 28px 20px; padding-top: 32px; } .footer-intro, .footer-offices { grid-column: 1 / -1; } .footer-contact-bar { flex-direction: column; align-items: flex-start; } .footer-refined .footer-brand-logo { width: 240px; } }
 
 @media (max-width: 1024px) {
   .desktop-nav { display: none !important; }

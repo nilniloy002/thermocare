@@ -17,11 +17,15 @@ class EnquiryController extends Controller
             'enquiry_type' => ['nullable', 'in:contact,consultation'],
             'name' => ['required', 'string', 'max:120'],
             'organization' => ['nullable', 'string', 'max:120'],
-            'contact' => ['required', 'string', 'max:150'],
+            'contact' => ['required', 'string', 'max:150', function ($attribute, $value, $fail) {
+                if (! filter_var($value, FILTER_VALIDATE_EMAIL) && ! preg_match('/^\+?[0-9][0-9\s().-]{5,24}[0-9]$/', $value)) {
+                    $fail('Please enter a valid email address or phone number.');
+                }
+            }],
             'service_interest' => ['nullable', 'string', 'max:120'],
             'project_type' => ['nullable', 'string', 'max:120'],
             'location' => ['nullable', 'string', 'max:120'],
-            'message' => ['nullable', 'string', 'max:5000'],
+            'message' => ['required', 'string', 'max:5000'],
         ]));
 
         $recipient = SiteSetting::where('key', 'email')->value('value') ?: config('mail.from.address');

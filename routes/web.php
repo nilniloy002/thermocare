@@ -13,6 +13,7 @@ Route::view('/services', 'services')->name('services');
 Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/products.html', [PageController::class, 'products']);
 Route::view('/contact', 'contact')->name('contact');
+Route::view('/sitemap', 'sitemap')->name('sitemap');
 Route::view('/consultation', 'consultation')->name('consultation');
 Route::post('/contact', [EnquiryController::class, 'store'])->name('enquiries.store');
 Route::get('/site-data', function () {

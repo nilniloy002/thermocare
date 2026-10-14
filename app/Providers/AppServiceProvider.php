@@ -26,6 +26,14 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $settings = SiteSetting::pluck('value', 'key');
+        $brandUrl = static function ($path, $fallback) {
+            $path = is_string($path) && $path !== '[]' && $path !== '' ? $path : $fallback;
+            return str_starts_with($path, 'site/') ? '/storage/'.$path : '/'.ltrim($path, '/');
+        };
+        \Illuminate\Support\Facades\View::share([
+            'brandLightUrl' => $brandUrl($settings->get('logo_light'), 'site/brand-light.png'),
+            'brandDarkUrl' => $brandUrl($settings->get('logo_dark'), 'site/brand-dark.png'),
+        ]);
         if ($settings->get('mail_host')) {
             config([
                 'mail.mailers.smtp.host' => $settings->get('mail_host'),

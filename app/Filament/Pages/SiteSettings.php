@@ -61,8 +61,11 @@ class SiteSettings extends Page implements HasForms
             ])->columns(2),
             Section::make('Contact & Email')->schema([
                 TextInput::make('email')->email()->required()->label('Notification email'),
-                TextInput::make('phone'),
-                TextInput::make('address')->columnSpanFull(),
+                TextInput::make('contact_email')->email()->label('Public contact email'),
+                TextInput::make('phone')->label('Primary phone'),
+                TextInput::make('phone_secondary')->label('Secondary phone'),
+                Textarea::make('address')->label('Dhaka office address')->columnSpanFull(),
+                Textarea::make('chattogram_address')->label('Chattogram office address')->columnSpanFull(),
                 TextInput::make('mail_host')->label('SMTP host'),
                 TextInput::make('mail_port')->numeric()->label('SMTP port'),
                 TextInput::make('mail_username')->label('SMTP username'),
@@ -86,7 +89,7 @@ class SiteSettings extends Page implements HasForms
 
     public function save(): void
     {
-        foreach ($this->data ?? [] as $key => $value) {
+        foreach ($this->form->getState() as $key => $value) {
             // Empty FileUpload fields arrive from Livewire as an empty array. They
             // mean "keep the current image", rather than "erase its stored path".
             if (in_array($key, ['logo_light', 'logo_dark', 'favicon'], true)) {
